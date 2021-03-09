@@ -1,0 +1,72 @@
+<form
+#f="ngForm"
+(ngSubmit)="guardarProveedor(f)"
+>
+<h2 mat-dialog-title>Agregar Proveedor</h2>
+
+<mat-dialog-content>
+    <section fxLayoutAlign="center" style="margin-top: 10px; margin-bottom: 10px">
+        <mat-card fxFlex="100%">
+            <div
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            fxLayoutGap="10px"
+            
+            >
+            <mat-form-field>
+                <mat-label>Ingrese Razón Social</mat-label>
+                <input type="text" matInput placeholder="Supermercado La Anónima S.A." name="razon_social" ngModel required />
+                <mat-error>Debe ingresar el nombre del Proveedor</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Seleccione Tipo Documento</mat-label>
+                <mat-select [(ngModel)]="selectTipo_documento" name="tipo_documento" (selectionChange)="selected($event)">
+                    <mat-option *ngFor="let tip of tipo_documento" value="tip">
+                        {{tip}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ingrese Número Documento</mat-label>
+                <input type="text" matInput placeholder="33-33333333-3" name="num_documento" ngModel required />
+                <mat-error>Debe ingresar el número de documento</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ingrese Dirección</mat-label>
+                <input type="text" matInput placeholder="Calle 33 Nro 3333" name="direccion" ngModel required />
+                <mat-error>Debe ingresar una dirección</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ingrese Teléfono</mat-label>
+                <input type="text" matInput placeholder="221-333333" name="telefono" ngModel required />
+                <mat-error>Debe ingresar una número de teléfono</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ingrese e-mail</mat-label>
+                <input type="email" matInput placeholder="anonima@anonima.com" name="email" email ngModel required #emailInput="ngModel" />
+                
+                <mat-error *ngIf="emailInput.hasError('required')">El email no puede estar en blanco</mat-error>
+                <mat-error *ngIf="!emailInput.hasError('required')">El email es inválido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ingrese Contacto</mat-label>
+                <input type="text" matInput placeholder="Juan Perez" name="contacto" ngModel  />
+               
+            </mat-form-field>
+
+            </div>
+        </mat-card>
+    </section>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true">Cerrar</button>
+  <button mat-button >Guardar</button>
+</mat-dialog-actions>
+</form>
+

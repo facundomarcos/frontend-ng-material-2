@@ -1,0 +1,35 @@
+Agregando componente almacen/articulos
+     ng g c almacen/articulos --module app.module
+     crear interface articulo.model.ts
+     crear servicio articulos.service.ts
+     agregar ArticuloService en los providers en el app.module.ts
+     declarar variables, constructor e inicializacion en articulos.component.ts
+     datatable
+          import {MatTableModule} from '@angular/material/table';
+          copiar el codigo y armar la tabla
+          definir dataSource y articuloData
+          declarar el componente en el app.module.ts
+     funcionalidad de ordenamiento
+          import {MatSortModule} from '@angular/material/sort';
+     funcionalidad filtro -> sale del dataSource
+     funcionalidad paginacion
+          import {MatPaginatorModule} from '@angular/material/paginator';
+     boton flotante
+     Dialog para agregar articulos
+Agregando componente almacen/categorias
+     ng g c almacen/categorias --module app.module
+Enlazar categorias en combobox
+
+
+   Consultar data desde el servidor en angular 
+
+
+
+
+Agregar la url del proyecto netcore en environment.ts
+     baseUrl: 'http://localhost:51514'
+Importar HttpClientModule en el app.module.ts
+    import { HttpClientModule } from '@angular/common/http';
+    agregar en los imports
+
+

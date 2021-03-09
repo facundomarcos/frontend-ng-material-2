@@ -1,0 +1,94 @@
+Creacion del proyecto
+    ng new web-app
+Ejecutar el proyecto
+     ng serve --open --port 4300
+
+Crear componente usuario
+Crear componente inicio
+
+Agregar angular material
+    ng add @angular/material
+        tema indigo-pink yes yes
+
+crear componente para agregar usuarios
+    ng g c seguridad/registrar --module app.module
+    ng g c seguridad/login --module app.module
+    agregar las rutas en el el app-routing
+
+crear formulario
+    agregar codigo de los componentes en el html
+    importar componentes en el material.module.ts
+    dar estilo al formulario con flexlayout
+            instalar flexlayout y el cdk
+            npm i -s @angular/flex-layout @angular/cdk
+        ngModel name="password" -> capturar el valor
+        #f="ngForm" -> captura la data del formulario (objeto formulario)
+        (ngSubmit)="registrarUsuario(f) -> metodo que va a ejecutar despues del submit
+    agregar validaciones al formulario  
+        email -> 
+        required ->
+        minlength="8" -> 
+    mensajes de error (mail en blanco / mail invalido)
+        mat-error -> se condiciona con #emailInput="ngModel"
+        fxLayoutGap="10px" -> espaciado entre controles
+        [disabled]="f.invalid" -> desactiva el boton cuando el form es invalido
+
+agregar Drawer
+    importar el MatSidenavModule en el material.module.ts
+    agregar los componentes en el app.component.html
+        <mat-sidenav-container></mat-sidenav-container>
+        <mat-sidenav-content></mat-sidenav-content>
+    funcionalidad abrir, cerrar 
+        #menu role="navigation"
+        (click)="menu.toggle()" -> detecta cuando esta abierto o cerrado
+    estilos del Drawer
+    agregar menu
+        <mat-nav-list>
+        mat-list-item -> para que reconozca conmo un elemento de la lista
+        agregar iconos a los enlaces
+        dar estilos con css
+        (click)="menu.close()" -> cerrar drawer al clickear sobre un elemento
+
+
+agregar el toolbar
+    mat-toolbar
+        color -> color de la barra
+        fxFlex fxLayout fxLayoutAlign="flex-end" -> alineacion a la derecha
+        fxLayout="row" fxLayoutGap="10px" -> en fila y con separacion
+        otros estilos css
+
+Angular responsive
+    fxHide.xs -> oculta en dispositivo movil
+
+Crear componente de navegacion
+    ng g c navegacion/barra --module app.module
+    ng g c navegacion/menu-lista --module app.module
+    mover los componentes
+    crear la funcion toggle con un evento
+
+Creacion de Formulario Login 
+    reutilizar el register
+
+Seguridad autenticacion
+        crear interface que represente al usuario
+        crear interface que represente al login
+        establecer los metodos en registrar.ts
+            registrarUsuario(){}
+            login(){}
+            salirSesion(){}
+            obtenerUsuario(){}
+        establecer los metodos en login.ts
+            loginUsuario(){}
+        registrar los servicios como provider para usarlos en todos lados
+        inyectar esos servicios en los componentes .ts
+    Manejo de menu con sesiones
+    Seguridad en angular
+        seguridad.router.ts
+
+
+
+video  Crear Libro Service 
+
+
+https://github.com/angular/flex-layout
+https://github.com/angular/flex-layout/wiki/Responsive-API

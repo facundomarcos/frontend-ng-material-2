@@ -1,0 +1,18 @@
+<mat-table [dataSource]="dataSource" >
+
+
+
+    <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell> 
+        <mat-cell *matCellDef="let element">{{element.nombre}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcion">
+        <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell> 
+        <mat-cell *matCellDef="let element">{{element.descripcion}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="desplegarColumnas"></mat-header-row>
+    <mat-row *matRowDef="let row, columns: desplegarColumnas"></mat-row>
+
+</mat-table>

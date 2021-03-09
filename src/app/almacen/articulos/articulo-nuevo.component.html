@@ -1,0 +1,63 @@
+<form
+#f="ngForm"
+(ngSubmit)="guardarArticulo(f)"
+>
+<h2 mat-dialog-title>Agregar Artículo</h2>
+<mat-dialog-content>
+    <section fxLayoutAlign="center" style="margin-top: 10px; margin-bottom: 10px">
+        <mat-card fxFlex="100%">
+            <div
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            fxLayoutGap="10px"
+            
+            >
+            <mat-form-field>
+                <mat-label>Ingrese Nombre</mat-label>
+                <input type="text" matInput placeholder="Nombre del Artículo" name="nombre" ngModel required />
+                <mat-error>Debe ingresar el nombre del artículo</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ingrese Código</mat-label>
+                <input type="text" matInput placeholder="Código del Artículo" name="codigo" ngModel required />
+                <mat-error>Debe ingresar el código del artículo</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ingrese Descripción</mat-label>
+                <input type="text" matInput placeholder="Descripción del Artículo" name="descripcion" ngModel required />
+                <mat-error>Debe ingresar la descripción del artículo</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Seleccione Categoría</mat-label>
+                <mat-select [(ngModel)]="selectCategoria" name="categoria" (selectionChange)="selected($event)">
+                    <mat-option *ngFor="let cat of categorias" value="cat.categoriaId">
+                        {{cat.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ingrese Precio de Venta</mat-label>
+                <input type="text" matInput placeholder="Precio de Venta" name="precio_venta" ngModel required />
+                <mat-error>Debe ingresar el precio de venta del artículo</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ingrese Stock</mat-label>
+                <input type="text" matInput placeholder="Stock del Artículo" name="stock" ngModel required />
+                <mat-error>Debe ingresar el stock del artículo</mat-error>
+            </mat-form-field>
+
+            </div>
+        </mat-card>
+    </section>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true">Cerrar</button>
+  <button mat-button >Guardar</button>
+</mat-dialog-actions>
+</form>
+
